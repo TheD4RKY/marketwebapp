@@ -92,7 +92,7 @@ export default function Indexmenu() {
             </div>
                     <div className="w-full h-12 grid justify-items-center">
                 <button className="bg-yellow-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
-                    Let's start it
+                    {"Let's start it"}
                 </button>
                 </div>
                 </div>

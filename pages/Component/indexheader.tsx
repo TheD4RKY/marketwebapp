@@ -41,7 +41,7 @@ return(
                 <div className="row-start-3 row-end-4 z-0">
             <div className="grid justify-items-center w-full laptop:h-16">
                         <button className="laptop:w-48 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
-                            Let's start it
+                            {"Let's start it"}
                         </button>
 
             </div>
