@@ -21,10 +21,13 @@ return(
     </nav>
 
 <div className="w-full z-0">
-    <section className="w-full h-128 grid grid-rows-3 items-center z-0">
-        <video autoPlay muted loop className="h-screen w-screen pb-4 absolute laptop:fixed object-cover sm:w-full sm:h-full -z-10 blur-sm" >
+        <div className="w-full">
+        <video autoPlay muted loop className=" scale-150 h-screen w-screen pb-4 fixed laptop:fixed object-cover sm:w-full sm:h-full -z-10 blur-sm" >
             <source src='/video(1).mp4' type="video/mp4"/>
         </video>
+                
+        </div>
+            <section className="w-full h-128 grid grid-rows-3 items-center z-0">
                 <div className="row-start-1 row-end-2 z-0">
             <div className=" grid justify-items-center w-full">                  
                         <h1 className="text-black pb-4 text-2xl tablet:text-4xl laptop:text-5xl laptop:font-semibold"> HOLA AMIGO </h1>
