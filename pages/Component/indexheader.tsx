@@ -1,11 +1,19 @@
 import React from "react";
 import Image from "next/image";
-
+import Style from "/styles/colorchangeindex.module.css";
+import { useState } from "react";
 
 export default function Indexlogo(){
+
+    const [active, setActive] = useState(false);
+
+    const handleClick = () => {
+        setActive(!active);
+    };
+
 return(
     <>
-    <nav className="relative bg-stone-900 w-full h-16 z-10">
+        <nav className="sticky top-0 bg-stone-900 w-full h-16 z-10">
             <div className="w-2 desktop:flex desktop:flex-row-reverse">
     <Image
     src={"/logoplaceholder.png"}
@@ -14,12 +22,31 @@ return(
     />
 </div>
 <div className="relative h-full">
+                <button onClick={handleClick}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-12 pl-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>   
+                </svg>
+                </button>   
 </div>
     </nav>
-
+        <div className={active ? "visible" : 'invisible'  }>
+<div className="h-screen w-screen bg-stone-800 fixed z-20">
+                <div className="grid place-items-center h-5/6">
+                    <div className={Style.colorchange}>
+                         HOME 
+    </div>
+                    <div className={Style.colorchange}>
+        ABOUT 
+    </div>
+                    <div className={Style.colorchange}>
+                         PRODUCTS 
+                    </div>
+                    <div className={Style.colorchange}>
+                         COONTACT 
+                    </div>
+</div>
+</div>
+</div>
 <div className="w-full z-0">
         <div className="w-full">
         <video autoPlay muted loop className=" scale-150 h-screen w-screen pb-4 fixed laptop:fixed object-cover sm:w-full sm:h-full -z-10 blur-sm" >
