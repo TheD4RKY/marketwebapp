@@ -4,7 +4,7 @@ import "cropperjs/dist/cropper.css";
 import "./Demo.module.css";
 
 const defaultSrc =
-    "https://raw.githubusercontent.com/roadmanfong/react-cropper/master/example/img/child.jpg";
+    "/donotopen.png";
 
 export const Demo: React.FC = () => {
     const [image, setImage] = useState(defaultSrc);
@@ -34,6 +34,7 @@ export const Demo: React.FC = () => {
     console.log(cropData);
     return (
         <div>
+            
             <div style={{ width: "100%" }}>
                 <input type="file" onChange={onChange} />
                 <button>Use default img</button>
@@ -48,7 +49,7 @@ export const Demo: React.FC = () => {
                     viewMode={1}
                     minCropBoxHeight={10}
                     minCropBoxWidth={10}
-                    background={false}
+                    background={true}
                     responsive={true}
                     autoCropArea={1}
                     checkOrientation={false} // https://github.com/fengyuanchen/cropperjs/issues/671
@@ -72,8 +73,10 @@ export const Demo: React.FC = () => {
                     </h1>
                     <img style={{ width: "35%" }} src={cropData} alt="cropped" />
                 </div>
+                
             </div>
             <br style={{ clear: "both" }} />
+            
         </div>
     );
 };
