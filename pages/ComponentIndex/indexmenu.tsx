@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Style from '/styles/indexmenutext.module.css';
+import Link from "next/link";
 import { withRouter } from 'next/router';
 export default function Indexmenu() {
 
@@ -91,9 +92,11 @@ export default function Indexmenu() {
             <h1 className={Style.stylishbot}>Už jsi si vybral?</h1>
             </div>
                     <div className="w-full h-12 grid justify-items-center">
+                        <Link href="/select">
                 <button className="bg-yellow-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
                     {"Let's start it"}
                 </button>
+</Link>
                 </div>
                 </div>
         </section>

@@ -39,7 +39,7 @@ return(
                     <div className={Style.colorchange}>
         ABOUT 
     </div>
-                    <Link href="/img/">
+                    <Link href="/select">
                     <div className={Style.colorchange}>
                          PRODUCTS 
                     </div>
@@ -73,10 +73,11 @@ return(
                 </div>
                 <div className="row-start-3 row-end-4 z-0">
             <div className="grid justify-items-center w-full laptop:h-16">
+                <Link href="/select">
                         <button className="laptop:w-48 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
                             {"Let's start it"}
                         </button>
-
+</Link>
             </div>
         </div>
     </section>
