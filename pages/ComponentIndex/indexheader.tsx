@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Style from "/styles/colorchangeindex.module.css";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Indexlogo(){
 
@@ -38,9 +39,11 @@ return(
                     <div className={Style.colorchange}>
         ABOUT 
     </div>
+                    <Link href="/img/">
                     <div className={Style.colorchange}>
                          PRODUCTS 
                     </div>
+                    </Link>
                     <div className={Style.colorchange}>
                          COONTACT 
                     </div>
