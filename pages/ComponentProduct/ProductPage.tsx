@@ -8,6 +8,14 @@ const defaultSrc =
     "/donotopen.png";
 
 export const Demo: React.FC = (props) => {
+    var color = "white";
+    const [userName, setuserName] = useState("Default ");
+    const dataPassage = async event => {
+        event.preventDefault();
+        setuserName(event.target.name.value+" ");
+    }
+
+    
     const [image, setImage] = useState(defaultSrc);
     const [cropData, setCropData] = useState("#");
     const [cropper, setCropper] = useState<any>();
@@ -32,15 +40,14 @@ export const Demo: React.FC = (props) => {
         }
     };
     return (
-        <div className="bg-slate-800">
+        <div className="bg-slate-800 grid grid-cols-2 w-full h-screen">
             
-            <div style={{ width: "100%" }}>
-                <input type="file" onChange={onChange} />
-                <button>Use default img</button>
+            <div className="col-start-1 col-end-2 flex flex-col w-full justify-center items-center">
                 <br />
                 <br />
+                <div className="w-full flex justify-center pt-14">
                 <Cropper
-                    style={{ height: 400, width: "100%" }}
+                    style={{ height: 400}}
                     zoomTo={0.5}
                     initialAspectRatio={1}
                     preview=".img-preview"
@@ -57,31 +64,63 @@ export const Demo: React.FC = (props) => {
                     }}
                     guides={true}
                 />
-            </div>
-            <div>
-                
+                    </div>
+                <input className="pt-16  " type="file" onChange={onChange} />
                 <div
                     className="box"
                     style={{ width: "50%", float: "right", height: "300px" }}
                 >
                     <h1>
-                        
-                        <button style={{ float: "right" }} onClick={getCropData}>
+                        <div className="pt-10 w-full flex justify-center">
+                        <button className="laptop:w-48 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full" onClick={getCropData}>
                             Crop Image
-                        </button>
+                            </button></div>
                     </h1>
                 </div>
-                
+
+                <div>
+                    <label className="switch">
+                        <input type="checkbox" />
+                            <span className="slider round"></span>
+                    </label>
+
+                </div>
+
+
+                <form onSubmit={dataPassage} method="post">
+                    <label >Uživatelské jméno</label>
+                    <input type="text" id="name" name="first" />
+                    <label >Popisek</label>
+                    <input type="text" id="last" name="last" />
+                    <button type="submit">Submit</button>
+                </form>
             </div>
-            <br style={{ clear: "both" }} />
-            <div className="">
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div className="col-start-2 col-end-3 flex flex-col w-full justify-center items-center bg-fadedblue" >
                 <svg
                     id="instagramCover"
                     viewBox="0 0 839 1090"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="shadow-2xl"
                     style={{
                         maxHeight: "65vh",
-                        backgroundColor: "blue",
+                        backgroundColor: "#484b5e",
                         maxWidth: "477.978px",
                     }}
                     data-v-6b966f65=""
@@ -141,6 +180,18 @@ export const Demo: React.FC = (props) => {
                             x={132}
                             y={206.78841}
                         />
+                        <g>
+                            <path id="svg_1" stroke-width="3" stroke={color} fill={"none"} d="m153.48936,809.85026c-5.49226,-9.16352 -20.93617,-6.48842 -20.93617,4.99397c0,7.90655 9.71962,15.99121 20.93617,26.81542c11.2183,-10.82422 20.93617,-18.90888 20.93617,-26.81542c0,-11.5214 -15.48404,-14.08963 -20.93617,-4.99397z"></path>
+                        </g>
+                        <g>
+                            <path id="XMLID_20_" fill="none" stroke-width="3" d="m232.43284,840.64192c-3.00747,1.63691 -6.39087,2.54631 -9.96223,2.54631c-11.278,0 -20.3004,-8.73019 -20.3004,-19.64292s9.02239,-19.64292 20.3004,-19.64292c11.278,0 20.3004,8.73019 20.3004,19.64292c0,3.63758 -0.93984,7.09327 -2.8195,10.00334" stroke={color} className="st1"></path>
+                            <polyline id="XMLID_25_" fill="none" stroke-width="3" points="232.432861328125,840.6419067382812 242.5830535888672,844.0975952148438 239.9515380859375,833.5486450195312 " stroke={color} className="st0"></polyline>
+                        </g>
+                        <g>
+                            <polygon id="XMLID_31_" stroke-width="3" fill="none" points="269,806.0849475860596 311.8564147949219,806.0849475860596 290.4281768798828,841.9150581359863 284.9771423339844,820.8171501159668 " stroke={color} className="st0">
+                                </polygon> 
+                                <line id="XMLID_33_" stroke-width="3" fill="none" y2="806.08494" x2="311.8564" y1="820.81713" x1="284.97717" stroke={color} className="st0"></line>
+                        </g>
                         <g id="svg_30">
                             <g id="svg_24">
                                 <ellipse
@@ -152,7 +203,7 @@ export const Demo: React.FC = (props) => {
                                     rx={24}
                                     ry={24}
                                 />
-                            </g>
+                            </g> 
                             <foreignObject x={200} y={150} width={400} height={50}>
                                 <div
                                     style={{
@@ -163,7 +214,7 @@ export const Demo: React.FC = (props) => {
                                         textAlign: "left",
                                     }}
                                 >
-                                    <span>{"uzivatelske_jmeno"}</span>
+                                    <span>{}</span>
                                 </div>
                             </foreignObject>
                         </g>
@@ -304,7 +355,7 @@ export const Demo: React.FC = (props) => {
                                     textAlign: "left",
                                 }}
                             >
-                                <b>{"uzivatelske_jmeno"}</b>
+                                <b>{ userName }</b>
                                 <span>{"Popisek"}</span>
                             </div>
                         </foreignObject>

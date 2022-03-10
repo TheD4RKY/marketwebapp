@@ -51,7 +51,10 @@ module.exports = {
         '256': '62rem',
         '200': '38rem',
       },
-      
+      colors: {
+        'fadedblue': '#40445c'
+
+      }
     },
   },
   plugins: [],
