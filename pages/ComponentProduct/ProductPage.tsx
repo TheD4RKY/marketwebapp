@@ -10,9 +10,11 @@ const defaultSrc =
 export const Demo: React.FC = (props) => {
     var color = "white";
     const [userName, setuserName] = useState("Default ");
+    const [userDescription, setDescription] = useState("Default popisek ");
     const dataPassage = async event => {
         event.preventDefault();
         setuserName(event.target.name.value+" ");
+        setDescription(event.target.description.value + " ");
     }
 
     
@@ -91,7 +93,7 @@ export const Demo: React.FC = (props) => {
                     <label >Uživatelské jméno</label>
                     <input type="text" id="name" name="first" />
                     <label >Popisek</label>
-                    <input type="text" id="last" name="last" />
+                    <input type="text" id="description" name="last" />
                     <button type="submit">Submit</button>
                 </form>
             </div>
@@ -193,6 +195,7 @@ export const Demo: React.FC = (props) => {
                                 <line id="XMLID_33_" stroke-width="3" fill="none" y2="806.08494" x2="311.8564" y1="820.81713" x1="284.97717" stroke={color} className="st0"></line>
                         </g>
                         <g id="svg_30">
+                            <b></b>
                             <g id="svg_24">
                                 <ellipse
                                     id="svg_23"
@@ -214,7 +217,7 @@ export const Demo: React.FC = (props) => {
                                         textAlign: "left",
                                     }}
                                 >
-                                    <span>{}</span>
+                                    <span>{userName}</span>
                                 </div>
                             </foreignObject>
                         </g>
@@ -356,7 +359,7 @@ export const Demo: React.FC = (props) => {
                                 }}
                             >
                                 <b>{ userName }</b>
-                                <span>{"Popisek"}</span>
+                                <span>{userDescription}</span>
                             </div>
                         </foreignObject>
                         <image
