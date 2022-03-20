@@ -3,13 +3,20 @@ import * as React from "react";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 import "./Demo.module.css";
-
+import active from "/styles/active.module.css"
 const defaultSrc =
     "/donotopen.png";
 
 export const Demo: React.FC = (props) => {
     var color = "white";
     const [userName, setuserName] = useState("Default ");
+
+    const [active, setActive] = useState(false);
+
+    const handleClick = () => {
+        setActive(!active);
+    };
+
     const [userDescription, setDescription] = useState("Default popisek ");
     const dataPassage = async event => {
         event.preventDefault();
@@ -82,7 +89,7 @@ export const Demo: React.FC = (props) => {
 
                 <div>
                     <label className="switch">
-                        <input type="checkbox" />
+                        <button onClick={handleClick}>qdqwdqwdqwdq</button>
                             <span className="slider round"></span>
                     </label>
 
@@ -183,7 +190,8 @@ export const Demo: React.FC = (props) => {
                             y={206.78841}
                         />
                         <g>
-                            <path id="svg_1" stroke-width="3" stroke={color} fill={"none"} d="m153.48936,809.85026c-5.49226,-9.16352 -20.93617,-6.48842 -20.93617,4.99397c0,7.90655 9.71962,15.99121 20.93617,26.81542c11.2183,-10.82422 20.93617,-18.90888 20.93617,-26.81542c0,-11.5214 -15.48404,-14.08963 -20.93617,-4.99397z"></path>
+                            <path className={active ? 'invisible' : "visible"  } id="svg_1" stroke-width="3" stroke={color} fill={"none"} d="m153.48936,809.85026c-5.49226,-9.16352 -20.93617,-6.48842 -20.93617,4.99397c0,7.90655 9.71962,15.99121 20.93617,26.81542c11.2183,-10.82422 20.93617,-18.90888 20.93617,-26.81542c0,-11.5214 -15.48404,-14.08963 -20.93617,-4.99397z"></path>
+                            <path className={active ? "visible" : 'invisible'  } id="svg_1" stroke-width="3" stroke={"red"} fill={"red"} d="m153.48936,809.85026c-5.49226,-9.16352 -20.93617,-6.48842 -20.93617,4.99397c0,7.90655 9.71962,15.99121 20.93617,26.81542c11.2183,-10.82422 20.93617,-18.90888 20.93617,-26.81542c0,-11.5214 -15.48404,-14.08963 -20.93617,-4.99397z"></path>
                         </g>
                         <g>
                             <path id="XMLID_20_" fill="none" stroke-width="3" d="m232.43284,840.64192c-3.00747,1.63691 -6.39087,2.54631 -9.96223,2.54631c-11.278,0 -20.3004,-8.73019 -20.3004,-19.64292s9.02239,-19.64292 20.3004,-19.64292c11.278,0 20.3004,8.73019 20.3004,19.64292c0,3.63758 -0.93984,7.09327 -2.8195,10.00334" stroke={color} className="st1"></path>
@@ -362,14 +370,7 @@ export const Demo: React.FC = (props) => {
                                 <span>{userDescription}</span>
                             </div>
                         </foreignObject>
-                        <image
-                            id="svg_6"
-                            
-                            height={50}
-                            width={50}
-                            y={847.5}
-                            x={132.5}
-                        />
+                        <image id="svg_6" href="/img/like_profiles.png" height="32" width="67" y="857.5" x="132.5"></image>
                     </g>
                 </svg>
 
