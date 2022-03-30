@@ -5,7 +5,7 @@ import "cropperjs/dist/cropper.css";
 import "./Demo.module.css";
 import active from "/styles/active.module.css"
 const defaultSrc =
-    "/donotopen.png";
+    "/donotopen.jpg";
 
 export const Demo: React.FC = (props) => {
     var color = "white";
@@ -85,25 +85,28 @@ export const Demo: React.FC = (props) => {
                             Crop Image
                             </button></div>
                     </h1>
-                </div>
-
-                <div>
-                    <label className="switch">
-                        <button onClick={handleClick}>qdqwdqwdqwdq</button>
+                    <div>
+                        <label className="switch">
+                            <button onClick={handleClick}>Lajknuté</button>
                             <span className="slider round"></span>
-                    </label>
+                        </label>
 
+                    </div>
+
+
+                    <form onSubmit={dataPassage} method="post">
+                        <label >Uživatelské jméno</label>
+                        <input type="text" id="name" name="first" />
+                        <br /><br />
+                        <label >Popisek</label>
+                        <input type="text" id="description" name="last" />
+                        <br />
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
                 </div>
 
-
-                <form onSubmit={dataPassage} method="post">
-                    <label >Uživatelské jméno</label>
-                    <input type="text" id="name" name="first" />
-                    <label >Popisek</label>
-                    <input type="text" id="description" name="last" />
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
+                
            
 
 
@@ -148,7 +151,7 @@ export const Demo: React.FC = (props) => {
                         width={47}
                         height={47}
                     >
-                        <image href="/donotopen.png" x={0} y={0} width={47} height={47} />
+                        <image href={cropData} x={0} y={0} width={47} height={47} />
                     </pattern>
                     <g>
                         <title>{"background"}</title>
@@ -190,12 +193,8 @@ export const Demo: React.FC = (props) => {
                             y={206.78841}
                         />
                         <g>
-<<<<<<< HEAD
                             <path className={active ? 'invisible' : "visible"  } id="svg_1" stroke-width="3" stroke={color} fill={"none"} d="m153.48936,809.85026c-5.49226,-9.16352 -20.93617,-6.48842 -20.93617,4.99397c0,7.90655 9.71962,15.99121 20.93617,26.81542c11.2183,-10.82422 20.93617,-18.90888 20.93617,-26.81542c0,-11.5214 -15.48404,-14.08963 -20.93617,-4.99397z"></path>
                             <path className={active ? "visible" : 'invisible'  } id="svg_1" stroke-width="3" stroke={"red"} fill={"red"} d="m153.48936,809.85026c-5.49226,-9.16352 -20.93617,-6.48842 -20.93617,4.99397c0,7.90655 9.71962,15.99121 20.93617,26.81542c11.2183,-10.82422 20.93617,-18.90888 20.93617,-26.81542c0,-11.5214 -15.48404,-14.08963 -20.93617,-4.99397z"></path>
-=======
-                            <path id="svg_1" strokeWidth="3" stroke={color} fill={"none"} d="m153.48936,809.85026c-5.49226,-9.16352 -20.93617,-6.48842 -20.93617,4.99397c0,7.90655 9.71962,15.99121 20.93617,26.81542c11.2183,-10.82422 20.93617,-18.90888 20.93617,-26.81542c0,-11.5214 -15.48404,-14.08963 -20.93617,-4.99397z"></path>
->>>>>>> c96d5e532165e22a4196335763d836138a7b00e3
                         </g>
                         <g>
                             <path id="XMLID_20_" fill="none" strokeWidth="3" d="m232.43284,840.64192c-3.00747,1.63691 -6.39087,2.54631 -9.96223,2.54631c-11.278,0 -20.3004,-8.73019 -20.3004,-19.64292s9.02239,-19.64292 20.3004,-19.64292c11.278,0 20.3004,8.73019 20.3004,19.64292c0,3.63758 -0.93984,7.09327 -2.8195,10.00334" stroke={color} className="st1"></path>
@@ -374,7 +373,7 @@ export const Demo: React.FC = (props) => {
                                 <span>{userDescription}</span>
                             </div>
                         </foreignObject>
-                        <image id="svg_6" href="/img/like_profiles.png" height="32" width="67" y="857.5" x="132.5"></image>
+                        <image id="svg_6" href="/profilovkysmall.png" height="32" width="67" y="857.5" x="132.5"></image>
                     </g>
                 </svg>
 
