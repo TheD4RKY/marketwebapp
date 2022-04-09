@@ -6,7 +6,6 @@ import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
-
 export default function Home() {
     const router = useRouter();
     const { status } = router.query;
@@ -17,13 +16,12 @@ export default function Home() {
         name: 'Apple AirPods',
         description: 'Latest Apple AirPods.',
         image:
-            '/donotopen.jpg',
+            'https://i.pinimg.com/564x/fa/c4/a2/fac4a2062dd7d3ed780dc872eef297fc.jpg',
         quantity: 0,
         price: 999,
     });
 
     const changeQuantity = (value) => {
-        // Don't allow the quantity less than 0, if the quantity is greater than value entered by user then the user entered quantity is used, else 0
         setItem({ ...item, quantity: Math.max(0, value) });
     };
 
@@ -39,7 +37,7 @@ export default function Home() {
         changeQuantity(item.quantity - 1);
     };
 
-    const publishableKey = `${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`;
+    const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
     const stripePromise = loadStripe(publishableKey);
     const createCheckOutSession = async () => {
         setLoading(true);
@@ -63,7 +61,7 @@ export default function Home() {
                     name='description'
                     content='Complete Step By Step Tutorial for integrating Stripe Checkout with Next.js'
                 />
-                <link rel='icon' href='/favicon.ico' />
+                <link href='/favicon.ico' />
             </Head>
             <main>
                 {status && status === 'success' && (
@@ -111,12 +109,7 @@ export default function Home() {
                         {loading ? 'Processing...' : 'Buy'}
                     </button>
                 </div>
-                <a
-                    className='block text-blue-500 mt-4'
-                    href='https://blog.cb-ashik.me/stripe-checkout-with-nextjs'
-                >
-                    Read Blog
-                </a>
+               
                 <div className='bg-yellow-100 text-yellow-700 p-2 mt-2 rounded border mb-2 border-yellow-700'>
                     Use test card for testing.
                     <p>Card Number: 4242 4242 4242 4242</p>
