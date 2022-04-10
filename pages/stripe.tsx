@@ -55,14 +55,6 @@ export default function Home() {
     };
     return (
         <div className={styles.container}>
-            <Head>
-                <title>Stripe Checkout with Next.js</title>
-                <meta
-                    name='description'
-                    content='Complete Step By Step Tutorial for integrating Stripe Checkout with Next.js'
-                />
-                <link href='/favicon.ico' />
-            </Head>
             <main>
                 {status && status === 'success' && (
                     <div className='bg-green-100 text-green-700 p-2 rounded border mb-2 border-green-700'>
@@ -100,7 +92,7 @@ export default function Home() {
                             +
                         </button>
                     </div>
-                    <p>Total: ${item.quantity * item.price}</p>
+                    <p>Total: {item.quantity * item.price} czk</p>
                     <button
                         disabled={item.quantity === 0 || loading}
                         onClick={createCheckOutSession}
@@ -111,8 +103,8 @@ export default function Home() {
                 </div>
                
                 <div className='bg-yellow-100 text-yellow-700 p-2 mt-2 rounded border mb-2 border-yellow-700'>
-                    Use test card for testing.
-                    <p>Card Number: 4242 4242 4242 4242</p>
+                    TESTOVACI KARTA
+                    <p>4242 4242 4242 4242</p>
                 </div>
             </main>
         </div>
