@@ -13,8 +13,8 @@ export default function Home() {
     const [loading, setLoading] = useState(false);
 
     const [item, setItem] = useState({
-        name: 'Apple AirPods',
-        description: 'Latest Apple AirPods.',
+        name: 'Product',
+        description: 'Popis',
         image:
             'https://i.pinimg.com/564x/fa/c4/a2/fac4a2062dd7d3ed780dc872eef297fc.jpg',
         quantity: 0,
