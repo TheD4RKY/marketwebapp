@@ -9,7 +9,9 @@ import { useRouter } from 'next/router';
 export default function Home() {
     const router = useRouter();
     const { status } = router.query;
-
+    const query = router.query;
+    const finalnicena:any = query.price;
+    console.log({finalnicena});
     const [loading, setLoading] = useState(false);
 
     const [item, setItem] = useState({
@@ -18,7 +20,7 @@ export default function Home() {
         image:
             'https://i.pinimg.com/564x/fa/c4/a2/fac4a2062dd7d3ed780dc872eef297fc.jpg',
         quantity: 0,
-        price: 999,
+        price: finalnicena,
     });
 
     const changeQuantity = (value) => {
@@ -106,6 +108,7 @@ export default function Home() {
                     TESTOVACI KARTA
                     <p>4242 4242 4242 4242</p>
                 </div>
+                
             </main>
         </div>
     );

@@ -1,14 +1,18 @@
 import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import * as React from "react";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 import "./Demo.module.css";
 import active from "/styles/active.module.css"
+import { privateDecrypt } from "crypto";
 const defaultSrc =
     "/donotopen.jpg";
 
 export const Demo: React.FC = (props) => {
     var color = "white";
+    const [cena, setCena] = useState({ price: 100});
     const [userName, setuserName] = useState("Default ");
 
     const [active, setActive] = useState(false);
@@ -56,7 +60,7 @@ export const Demo: React.FC = (props) => {
                 <br />
                 <div className="w-full flex justify-center pt-14">
                 <Cropper
-                    style={{ height: 400}}
+                    style={{ height: 400, width: 400}}
                     zoomTo={0.5}
                     initialAspectRatio={1}
                     preview=".img-preview"
@@ -103,7 +107,43 @@ export const Demo: React.FC = (props) => {
                         <br />
                         <button type="submit">Submit</button>
                     </form>
+                    <div className="w-full flex justify-center">
+                    <h1> Material: </h1>
+
+                    <div className="w-full flex justify-center">
+                        <h2> Dřevo </h2>
+                            <button className="laptop:w-28 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
+                                +155
+                            </button>
+                        </div>
+                         <div className="w-full flex justify-center">
+                            <h2> Plast </h2>
+                            <button className="laptop:w-28 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
+                                +50
+                            </button>
+                        </div>
+                        <div className="w-full flex justify-center">
+                            <h2> Sklo </h2>
+                            <button className="laptop:w-28 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
+                                +300
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="w-full flex justify-center">
+                        <h1 className="pr-8 text-3xl"> Finální cena: {cena.price}</h1></div>
+                        <div className="w-full flex justify-center">
+                       <Link href={{
+                           pathname: "/stripe",
+                           query: cena,
+                       }}><button className="laptop:w-26 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
+                            Pokračovat
+                            </button></Link> 
+                        </div>
+                    </div>
                 </div>
+
+               
                 </div>
 
                 
