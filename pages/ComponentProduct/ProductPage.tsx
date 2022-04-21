@@ -12,7 +12,7 @@ const defaultSrc =
 
 export const Demo: React.FC = (props) => {
     var color = "white";
-    const [cena, setCena] = useState({ price: 100});
+    const [cena, setCena] = useState(100);
     const [userName, setuserName] = useState("Default ");
 
     const [active, setActive] = useState(false);
@@ -112,9 +112,16 @@ export const Demo: React.FC = (props) => {
 
                     <div className="w-full flex justify-center">
                         <h2> Dřevo </h2>
-                            <button className="laptop:w-28 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
+                            <input className="laptop:w-28 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full"
+                                type="submit"
+                                value={cena + 155}
+                                onChange={
+                                    (e) => {
+                                        setCena(cena + 155);
+                                    }}
+                                />
                                 +155
-                            </button>
+                            
                         </div>
                          <div className="w-full flex justify-center">
                             <h2> Plast </h2>
@@ -131,11 +138,11 @@ export const Demo: React.FC = (props) => {
                     </div>
                     <div>
                         <div className="w-full flex justify-center">
-                        <h1 className="pr-8 text-3xl"> Finální cena: {cena.price}</h1></div>
+                        <h1 className="pr-8 text-3xl"> Finální cena: {cena}</h1></div>
                         <div className="w-full flex justify-center">
                        <Link href={{
                            pathname: "/stripe",
-                           query: cena,
+                           query: {cena},
                        }}><button className="laptop:w-26 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
                             Pokračovat
                             </button></Link> 
