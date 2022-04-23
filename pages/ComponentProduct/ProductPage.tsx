@@ -5,6 +5,7 @@ import * as React from "react";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 import "./Demo.module.css";
+import button from "./button.module.css";
 import active from "/styles/active.module.css"
 import { privateDecrypt } from "crypto";
 const defaultSrc =
@@ -28,7 +29,15 @@ export const Demo: React.FC = (props) => {
         setDescription(event.target.description.value + " ");
     }
 
-    
+    function handleCenaDrevo(){
+        setCena(150);
+    }
+    function handleCenaPlast() {
+        setCena(255);
+    }
+    function handleCenaSklo() {
+        setCena(450);
+    }
     const [image, setImage] = useState(defaultSrc);
     const [cropData, setCropData] = useState("#");
     const [cropper, setCropper] = useState<any>();
@@ -53,12 +62,12 @@ export const Demo: React.FC = (props) => {
         }
     };
     return (
-        <div className="bg-slate-800 grid grid-cols-2 w-full h-screen">
+        <div className="flex flex-col-reverse bg-slate-800 lg:grid lg:grid-cols-2 lg:w-full lg:h-screen">
             
-            <div className="col-start-1 col-end-2 flex flex-col w-full justify-center items-center">
+         <div className="w-full flex flex-col lg:col-start-1 lg:col-end-2 lg:flex lg:flex-col lg:w-full lg:justify-center lg:items-center">
                 <br />
                 <br />
-                <div className="w-full flex justify-center pt-14">
+                <div className="lg:w-full flex justify-center lg:pt-14">
                 <Cropper
                     style={{ height: 400, width: 400}}
                     zoomTo={0.5}
@@ -78,32 +87,48 @@ export const Demo: React.FC = (props) => {
                     guides={true}
                 />
                     </div>
-                <input className="pt-16  " type="file" onChange={onChange} />
-                <div
-                    className="box"
-                    style={{ width: "50%", float: "right", height: "300px" }}
-                >
+                <div className="flex justify-center"> 
+                <input className="lg:pt-16" type="file" onChange={onChange} />
+                </div>
+                
                     <h1>
-                        <div className="pt-10 w-full flex justify-center">
-                        <button className="laptop:w-48 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full" onClick={getCropData}>
+                        <div className="lg:pt-10 lg:w-full flex justify-center">
+                            <button className="laptop:w-48 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full" onClick={getCropData}>
                             Crop Image
                             </button></div>
                     </h1>
-                    <div>
-                        <label className="switch">
-                            <button onClick={handleClick}>Lajknuté</button>
-                            <span className="slider round"></span>
+                    <div >
+                    <div className="flex items-center justify-center w-full mb-12">
+                        <label
+                         
+                            className="flex items-center cursor-pointer"
+                        >
+                          
+                            <div className="relative">
+                               
+                                <input onClick={handleClick} id="toogleA" type="checkbox" className="sr-only" />
+                              
+                                <div className="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                            
+                                <div className={[" absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"] + " " + button.dot }></div>
+                            </div>
+                        
+                            <div className="ml-3 text-gray-700 font-medium">
+                                
+                            </div>
                         </label>
 
                     </div>
 
 
                     <form onSubmit={dataPassage} method="post">
-                        <label >Uživatelské jméno</label>
-                        <input type="text" id="name" name="first" />
+                        <div className="flex justify-center">
+                        <input type="text" id="name" name="first" placeholder="Jmeno"/>
+                        </div>
                         <br /><br />
-                        <label >Popisek</label>
-                        <input type="text" id="description" name="last" />
+                        <div className="flex justify-center">
+                        <input type="text" id="description" name="last" placeholder="Popisek" />
+                        </div>
                         <br />
                         <button type="submit">Submit</button>
                     </form>
@@ -111,28 +136,27 @@ export const Demo: React.FC = (props) => {
                     <h1> Material: </h1>
 
                     <div className="w-full flex justify-center">
-                        <h2> Dřevo </h2>
-                            <input className="laptop:w-28 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full"
-                                type="submit"
-                                value={cena + 155}
-                                onChange={
-                                    (e) => {
-                                        setCena(cena + 155);
-                                    }}
-                                />
-                                +155
+                        
+                            <button className="laptop:w-28 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full" onClick={
+                            handleCenaDrevo
+                            }><h2> Dřevo </h2></button>
+                               
                             
                         </div>
                          <div className="w-full flex justify-center">
-                            <h2> Plast </h2>
-                            <button className="laptop:w-28 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
-                                +50
+                            
+                            <button onClick={
+                            handleCenaPlast
+                            } className="laptop:w-28 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
+                                <h2> Plast </h2>
                             </button>
                         </div>
                         <div className="w-full flex justify-center">
+                            
+                            <button onClick={
+                            handleCenaSklo
+                             } className="laptop:w-28 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
                             <h2> Sklo </h2>
-                            <button className="laptop:w-28 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
-                                +300
                             </button>
                         </div>
                     </div>
@@ -142,7 +166,10 @@ export const Demo: React.FC = (props) => {
                         <div className="w-full flex justify-center">
                        <Link href={{
                            pathname: "/stripe",
-                           query: {cena},
+                           query: {
+                               cena,
+                               image
+                        },
                        }}><button className="laptop:w-26 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
                             Pokračovat
                             </button></Link> 
@@ -171,12 +198,12 @@ export const Demo: React.FC = (props) => {
 
 
 
-            <div className="col-start-2 col-end-3 flex flex-col w-full justify-center items-center bg-fadedblue" >
+            <div className="flex flex-col w-screen lg:col-start-2 lg:col-end-3 lg:flex lg:flex-col lg:w-full justify-center items-center bg-fadedblue" >
                 <svg
                     id="instagramCover"
                     viewBox="0 0 839 1090"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="shadow-2xl"
+                    className="shadow-2xl scale-90 lg:scale-100"
                     style={{
                         maxHeight: "65vh",
                         backgroundColor: "#484b5e",

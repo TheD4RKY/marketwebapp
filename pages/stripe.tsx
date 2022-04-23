@@ -10,7 +10,7 @@ export default function Home() {
     const router = useRouter();
     const { status } = router.query;
     const query = router.query;
-    const finalnicena:any = query.price;
+    const finalnicena:any = query.cena;
     console.log({finalnicena});
     const [loading, setLoading] = useState(false);
 

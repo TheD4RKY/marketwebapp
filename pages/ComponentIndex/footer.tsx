@@ -23,7 +23,7 @@ export default function Footer(){
                 <h1 className="text-white text-center text-xl p-1 font-medium"> Zpracování osobních údajů </h1>
         </div>
         <div>
-                <h5 className="text-center text-white pt-4 text-sm"> Copyright © 2020, OnGlazz </h5>
+                <h5 className="text-center text-white pt-4 text-sm"> Copyright © 2022, Tom Prčík</h5>
         </div>
         </div>
     )
