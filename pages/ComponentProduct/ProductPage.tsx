@@ -74,6 +74,7 @@ export const Demo: React.FC = (props) => {
                     style={{ height: 400, width: 400}}
                     zoomTo={0.5}
                     initialAspectRatio={1}
+                    aspectRatio={1 / 1}
                     preview=".img-preview"
                     src={image}
                     viewMode={1}
@@ -123,20 +124,20 @@ export const Demo: React.FC = (props) => {
                         </div>
                         
                     <form onSubmit={dataPassage} method="post">
-                        <div className="grid grid-cols-2 grid-rows-2">
+                        <div className="grid grid-cols-1 grid-rows-3 items-center">
                         <div className="row-start-1 row-end-2 col-start-1 col-end-2">
-                        <div className="flex justify-center">
-                        <input type="text" id="name" name="first" placeholder="Jmeno"/>
+                        <div className="flex justify-start">
+                        <input className="w-80 h-16" type="text" id="name" name="first" placeholder="Jmeno"/>
                                      </div></div>
                         
-                                <div className="row-start-1 row-end-2 col-start-2 col-end-3">
-                                    <div className="flex justify-center">
-                        <input className="" type="text" id="description" name="last" placeholder="Popisek" />
+                                <div className="row-start-2 row-end-3 col-start-1 col-end-2">
+                                    <div className="flex justify-start">
+                                    <textarea className="w-128 h-28" id="description" name="last" placeholder="Popisek" />
                                      </div></div>
-                        <div className="row-start-2 row-end-3 col-start-1 col-end-3">
-                            <div className="flex justify-center">
-                                        <button onClick={getCropData} type="submit" className="laptop:w-26 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">Potvrdit</button></div></div>
-                    </div></form>
+                        <div className="row-start-3 row-end-4 col-start-1 col-end-3">
+                                <div className="flex justify-center">
+                                        <div><button onClick={getCropData} type="submit" className="laptop:w-26 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">Potvrdit</button></div></div>
+                            </div></div></form>
                         
 
                         <div className="w-full flex lg:grid lg:grid-cols-4 lg:gap-6 justify-center pt-10 pb-10">
@@ -175,7 +176,17 @@ export const Demo: React.FC = (props) => {
                         <h1 className="pr-8 text-3xl"> Finální cena: {cena}</h1></div>
                         
                     </div>
-             
+                    <div className="w-full flex justify-center mb-12">
+                        <Link href={{
+                            pathname: "/stripe",
+                            query: {
+                                cena,
+                                image
+                            },
+                        }}><button className="laptop:w-26 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
+                                Pokračovat
+                            </button></Link>
+                    </div>
                 </div>
                
                 </div>
@@ -198,7 +209,7 @@ export const Demo: React.FC = (props) => {
 
 
             
-            <div className="flex flex-col w-screen lg:col-start-2 lg:col-end-3 lg:flex lg:flex-col lg:w-full justify-center items-center bg-fadedblue" >
+            <div className="flex pt-20 lg:pt-2 flex-col w-screen lg:col-start-2 lg:col-end-3 lg:flex lg:flex-col lg:w-full justify-center items-center bg-fadedblue lg:pb-72" >
                 
                 <svg
                     id="instagramCover"
@@ -452,17 +463,7 @@ export const Demo: React.FC = (props) => {
                     </g>
                 </svg>
                 
-                <div className="w-full flex justify-center">
-                    <Link href={{
-                        pathname: "/stripe",
-                        query: {
-                            cena,
-                            image
-                        },
-                    }}><button className="laptop:w-26 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
-                            Pokračovat
-                        </button></Link>
-                </div>
+                
             </div>
            
             </div>
