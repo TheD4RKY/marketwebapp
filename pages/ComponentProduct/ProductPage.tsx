@@ -23,7 +23,16 @@ export const Demo: React.FC = (props) => {
         setActive(!active);
     };
 
-    const [userDescription, setDescription] = useState("Default popisek ");
+    
+        const [userDescription, setDescription] = useState("Default popisek ");
+    const handleChangeText = (e) => {
+        e.preventDefault();
+        setDescription(e.target.value); 
+    };
+    const handleChangeName = (e) => {
+        e.preventDefault();
+        setuserName(e.target.value);
+    };
     const dataPassage = async event => {
         event.preventDefault();
         setuserName(event.target.name.value+" ");
@@ -69,7 +78,10 @@ export const Demo: React.FC = (props) => {
             <div className="w-full flex flex-col lg:col-start-1 lg:col-end-2 lg:flex lg:flex-col lg:w-full lg:justify-center lg:items-center bg-slate-800">
                 <br />
                 <br />
+                <div className="pt-10"><p>*Všechny desky dodáváme průhledné, modré pozadí v editoru slouží k lepšímu zobrazení barev.
+                    Náhled je pouze ilustrační. Případné nepřesnosti Vám opraví náš grafický tým.</p></div>
                 <div className="lg:w-full flex justify-center lg:pt-14">
+                    
                 <Cropper
                     style={{ height: 400, width: 400}}
                     zoomTo={0.5}
@@ -127,12 +139,12 @@ export const Demo: React.FC = (props) => {
                         <div className="grid grid-cols-1 grid-rows-3 items-center">
                         <div className="row-start-1 row-end-2 col-start-1 col-end-2">
                         <div className="flex justify-start">
-                        <input className="w-80 h-16" type="text" id="name" name="first" placeholder="Jmeno"/>
+                        <input className="w-80 h-16" type="text" id="name" name="first" placeholder="Jmeno" onChange={handleChangeName}/>
                                      </div></div>
                         
                                 <div className="row-start-2 row-end-3 col-start-1 col-end-2">
                                     <div className="flex justify-start">
-                                    <textarea className="w-128 h-28" id="description" name="last" placeholder="Popisek" />
+                                    <textarea className="w-128 h-28" id="description" name="last" placeholder="Popisek" onChange={handleChangeText}/>
                                      </div></div>
                         <div className="row-start-3 row-end-4 col-start-1 col-end-3">
                                 <div className="flex justify-center">
