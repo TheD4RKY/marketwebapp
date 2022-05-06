@@ -64,7 +64,7 @@ export const Demo: React.FC = (props) => {
     return (
         <div className="flex flex-col-reverse bg-slate-800 lg:grid lg:grid-cols-2 lg:w-full lg:h-screen">
             
-         <div className="w-full flex flex-col lg:col-start-1 lg:col-end-2 lg:flex lg:flex-col lg:w-full lg:justify-center lg:items-center">
+            <div className="w-full flex flex-col lg:col-start-1 lg:col-end-2 lg:flex lg:flex-col lg:w-full lg:justify-center lg:items-center bg-slate-800">
                 <br />
                 <br />
                 <div className="lg:w-full flex justify-center lg:pt-14">
@@ -97,7 +97,7 @@ export const Demo: React.FC = (props) => {
                             Crop Image
                             </button></div>
                     </h1>
-                    <div >
+                    <div className="bg-slate-800">
                     <div className="flex items-center justify-center w-full mb-12">
                         <label
                          
