@@ -8,6 +8,7 @@ import "./Demo.module.css";
 import button from "./button.module.css";
 import active from "/styles/active.module.css"
 import { privateDecrypt } from "crypto";
+import Header from "../ComponentIndex/header";
 const defaultSrc =
     "/donotopen.jpg";
 
@@ -63,7 +64,8 @@ export const Demo: React.FC = (props) => {
     };
     return (
         <div className="flex flex-col-reverse bg-slate-800 lg:grid lg:grid-cols-2 lg:w-full lg:h-screen">
-            
+            <div className="col-start-1 col-end-2">
+                <Header /></div>
             <div className="w-full flex flex-col lg:col-start-1 lg:col-end-2 lg:flex lg:flex-col lg:w-full lg:justify-center lg:items-center bg-slate-800">
                 <br />
                 <br />
@@ -90,15 +92,13 @@ export const Demo: React.FC = (props) => {
                 <div className="flex justify-center"> 
                 <input className="lg:pt-16" type="file" onChange={onChange} />
                 </div>
-                
-                    <h1>
-                        <div className="lg:pt-10 lg:w-full flex justify-center">
-                            <button className="laptop:w-48 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full" onClick={getCropData}>
-                            Crop Image
-                            </button></div>
-                    </h1>
+                <div className="">
+                    
                     <div className="bg-slate-800">
-                    <div className="flex items-center justify-center w-full mb-12">
+                        <div className="grid grid-cols-2 grid-rows-1 h-20 items-center">
+                            <div className="col-start-1 col-end-2"><div className="flex justify-center"> <h1>{"Lajknutý příspěvek"}</h1></div></div>
+                            <div className="col-start-2 col-end-3">
+                    <div className="flex items-center justify-center w-full ">
                         <label
                          
                             className="flex items-center cursor-pointer"
@@ -118,31 +118,40 @@ export const Demo: React.FC = (props) => {
                             </div>
                         </label>
 
-                    </div>
-
-
+                                </div></div>
+                            </div>
+                        </div>
+                        
                     <form onSubmit={dataPassage} method="post">
+                        <div className="grid grid-cols-2 grid-rows-2">
+                        <div className="row-start-1 row-end-2 col-start-1 col-end-2">
                         <div className="flex justify-center">
                         <input type="text" id="name" name="first" placeholder="Jmeno"/>
-                        </div>
-                        <br /><br />
-                        <div className="flex justify-center">
-                        <input type="text" id="description" name="last" placeholder="Popisek" />
-                        </div>
-                        <br />
-                        <button type="submit">Submit</button>
-                    </form>
-                    <div className="w-full flex justify-center">
-                    <h1> Material: </h1>
-
-                    <div className="w-full flex justify-center">
+                                     </div></div>
                         
+                                <div className="row-start-1 row-end-2 col-start-2 col-end-3">
+                                    <div className="flex justify-center">
+                        <input className="" type="text" id="description" name="last" placeholder="Popisek" />
+                                     </div></div>
+                        <div className="row-start-2 row-end-3 col-start-1 col-end-3">
+                            <div className="flex justify-center">
+                                        <button onClick={getCropData} type="submit" className="laptop:w-26 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">Potvrdit</button></div></div>
+                    </div></form>
+                        
+
+                        <div className="w-full flex lg:grid lg:grid-cols-4 lg:gap-6 justify-center pt-10 pb-10">
+                        <div className="col-start-1 col-end-2">
+                    <h1> Material: </h1></div>
+                            <div className="col-start-2 col-end-3">
+                    <div className="w-full flex justify-center">
+                       
                             <button className="laptop:w-28 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full" onClick={
                             handleCenaDrevo
                             }><h2> Dřevo </h2></button>
                                
                             
-                        </div>
+                                </div></div>
+                            <div className="col-start-3 col-end-4">
                          <div className="w-full flex justify-center">
                             
                             <button onClick={
@@ -150,7 +159,8 @@ export const Demo: React.FC = (props) => {
                             } className="laptop:w-28 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
                                 <h2> Plast </h2>
                             </button>
-                        </div>
+                                </div></div>
+                            <div className="col-start-4 col-end-5">
                         <div className="w-full flex justify-center">
                             
                             <button onClick={
@@ -158,25 +168,15 @@ export const Demo: React.FC = (props) => {
                              } className="laptop:w-28 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
                             <h2> Sklo </h2>
                             </button>
-                        </div>
+                                </div> </div>
                     </div>
                     <div>
-                        <div className="w-full flex justify-center">
+                        <div className="w-full flex justify-center mb-10">
                         <h1 className="pr-8 text-3xl"> Finální cena: {cena}</h1></div>
-                        <div className="w-full flex justify-center">
-                       <Link href={{
-                           pathname: "/stripe",
-                           query: {
-                               cena,
-                               image
-                        },
-                       }}><button className="laptop:w-26 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
-                            Pokračovat
-                            </button></Link> 
-                        </div>
+                        
                     </div>
+             
                 </div>
-
                
                 </div>
 
@@ -197,13 +197,14 @@ export const Demo: React.FC = (props) => {
 
 
 
-
+            
             <div className="flex flex-col w-screen lg:col-start-2 lg:col-end-3 lg:flex lg:flex-col lg:w-full justify-center items-center bg-fadedblue" >
+                
                 <svg
                     id="instagramCover"
                     viewBox="0 0 839 1090"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="shadow-2xl scale-90 lg:scale-100"
+                    className="shadow-2xl scale-90 lg:scale-100 lg:fixed"
                     style={{
                         maxHeight: "65vh",
                         backgroundColor: "#484b5e",
@@ -450,10 +451,21 @@ export const Demo: React.FC = (props) => {
                         <image id="svg_6" href="/profilovkysmall.png" height="32" width="67" y="857.5" x="132.5"></image>
                     </g>
                 </svg>
-
-
+                
+                <div className="w-full flex justify-center">
+                    <Link href={{
+                        pathname: "/stripe",
+                        query: {
+                            cena,
+                            image
+                        },
+                    }}><button className="laptop:w-26 transition-all bg-stone-800 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
+                            Pokračovat
+                        </button></Link>
+                </div>
             </div>
-        </div>
+           
+            </div>
     );
 };
 

@@ -34,18 +34,18 @@ return(
 <div className="h-screen w-screen bg-stone-800 fixed z-20">
                 <div className="grid place-items-center h-5/6">
                     <div className={Style.colorchange}>
-                         HOME 
+                        DOMOVNÍ STRÁNKA
     </div>
                     <div className={Style.colorchange}>
-        ABOUT 
+        O NÁS
     </div>
                     <Link href="/select">
                     <div className={Style.colorchange}>
-                         PRODUCTS 
+                         PRODUTKY
                     </div>
                     </Link>
                     <div className={Style.colorchange}>
-                         COONTACT 
+                         KONTACT 
                     </div>
 </div>
 </div>
