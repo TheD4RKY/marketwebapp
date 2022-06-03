@@ -9,10 +9,12 @@ import button from "./button.module.css";
 import active from "/styles/active.module.css"
 import { privateDecrypt } from "crypto";
 import Header from "../ComponentIndex/header";
+
 const defaultSrc =
     "/donotopen.jpg";
 
 export const Demo: React.FC = (props) => {
+    
     var color = "white";
     const [cena, setCena] = useState(100);
     const [userName, setuserName] = useState("Default ");
@@ -23,7 +25,10 @@ export const Demo: React.FC = (props) => {
         setActive(!active);
     };
 
-    
+    const handleChangeImage = (e) => {
+        e.preventDefault();
+        setCropData(e.target.value);
+    };
         const [userDescription, setDescription] = useState("Default popisek ");
     const handleChangeText = (e) => {
         e.preventDefault();
@@ -66,10 +71,12 @@ export const Demo: React.FC = (props) => {
         reader.readAsDataURL(files[0]);
     };
 
-    const getCropData = () => {
+    const getCropData = (cropper) => {
         if (typeof cropper !== "undefined") {
             setCropData(cropper.getCroppedCanvas().toDataURL());  
         }
+        
+    
     };
     return (
         <div className="flex flex-col-reverse bg-slate-800 lg:grid lg:grid-cols-2 lg:w-full lg:h-screen">
@@ -99,6 +106,7 @@ export const Demo: React.FC = (props) => {
                     onInitialized={(instance) => {
                         setCropper(instance);
                     }}
+                        onChange={getCropData}	
                     guides={true}
                 />
                     </div>
